@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import logo from '../images/logo.svg';
 
-function Header ({ loggedIn, email, onSignOut }) {
+function Header ({ isLoggedIn, email, onSignOut }) {
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="Логотип" />
+      <div className="header__logo" />
       <div className='header__wrapper'>
         {
-          loggedIn
+          isLoggedIn
             ?
               <>
                 <p className='header__email'>{email}</p>

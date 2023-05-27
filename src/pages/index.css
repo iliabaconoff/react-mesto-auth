@@ -5,6 +5,10 @@
 /* Header Styles */
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__logo/header__logo.css');
+@import url('../blocks/header/__wrapper/header__wrapper.css');
+@import url('../blocks/header/__link/header__link.css');
+@import url('../blocks/header/__link/_active/header__link_active.css');
+@import url('../blocks/header/__button/header__button.css');
 
 /* Profile Styles */
 @import url('../blocks/profile/profile.css');
@@ -40,6 +44,7 @@
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__container/popup__container.css');
 @import url('../blocks/popup/__form-title/popup__form-title.css');
+@import url('../blocks/popup/__status-title/popup__status-title.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__input/popup__input.css');
 @import url('../blocks/popup/__close/popup__close.css');
@@ -51,10 +56,14 @@
 @import url('../blocks/popup/__input/__input_type_error/popup__input_type_error.css');
 @import url('../blocks/popup/__input/__input-error_active/popup__input-error_active.css');
 @import url('../blocks/popup//__save/__save_inactive/popup__save_inactive.css');
+@import url('../blocks/popup/__status-icon/popup__status-icon.css');
 
-/* Auth Styles */
-@import url('../blocks/auth/auth.css');
-@import url('../blocks/auth/__wrapper/auth__wrapper.css');
-@import url('../blocks/auth/__link/auth__link.css');
-@import url('../blocks/auth/__text/auth__text.css');
-@import url('../blocks/auth/__title/auth__title.css');
+/* Authorization Styles */
+@import url('../blocks/authorization/authorization.css');
+@import url('../blocks/authorization/__form/authorization__form.css');
+@import url('../blocks/authorization/__title/authorization__title.css');
+@import url('../blocks/authorization/__input/authorization__input.css');
+@import url('../blocks/authorization/__input-error/authorization__input-error.css');
+@import url('../blocks/authorization/__submit-button/authorization__submit-button.css');
+@import url('../blocks/authorization/__submit-button/_disabled/authorization__submit-button_disabled.css');
+@import url('../blocks/authorization/__link/authorization__link.css');

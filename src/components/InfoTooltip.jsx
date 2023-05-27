@@ -1,16 +1,20 @@
-import React from 'react';
-import { ReactComponent as IconPositive } from '../images/icon-positive.svg';
-import { ReactComponent as IconNegative } from '../images/icon-negative.svg';
-import Popup from './Popup';
-import { popupInfo } from '../utils/data-list';
+import React from "react";
+import iconPositive from "../images/icon-positive.png";
+import iconNegative from "../images/icon-negative.png";
+import Popup from "./Popup";
 
-export default function InfoTooltip({ onClose, isOpen, errorMessage }) {
-  const { name, title } = popupInfo;
+export default function InfoTooltip({ onClose, isOpen, isError }) {
   return (
-    <Popup isOpen={isOpen} onClose={onClose} name={name}>
-      {!errorMessage ? <IconPositive /> : <IconNegative />}
-      <h2 className={`popup__heading popup__heading_type_${name}`}>
-        {!errorMessage ? title : `${errorMessage}`}
+    <Popup isOpen={isOpen} onClose={onClose} name="status">
+      <img
+        className="popup__status-icon"
+        src={isError ? iconNegative : iconPositive}
+        alt="Статус регистрации"
+      />
+      <h2 className={`popup__status-title`}>
+        {isError
+          ? "Что-то пошло не так! Попробуйте ещё раз."
+          : "Вы успешно зарегистрировались!"}
       </h2>
     </Popup>
   );

@@ -1,45 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Form from './Form';
-import Input from './Input';
-import { formRegister } from '../utils/data-list';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Register({ isLoading, onRegister, value, setValue }) {
-  const { name, title, buttonTextLoading, buttonTextDefault } = formRegister;
+function Register({ btnName, onSignUp }) {
+  const [values, setValues] = useState({});
+  const { email, password } = values;
 
-  function handleChange(evt) {
-    setValue({ ...value, [evt.target.name]: evt.target.value });
-  }
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
 
-  function handleSubmit(evt) {
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    onRegister();
-  }
+    onSignUp({ email, password });
+    setValues({});    
+  };
 
   return (
-    <div className='auth'>
-      <h1 className='auth__title'>{title}</h1>
-      <Form
-        isOpen={true}
-        name={name}
-        buttonText={isLoading ? buttonTextLoading : buttonTextDefault}
-        onSubmit={handleSubmit}
-      >
-        {formRegister.inputs.map((input) => (
-          <Input
-            key={input.name}
-            value={value[`${input.name}`]}
-            input={input}
-            handleChange={handleChange}
-          />
-        ))}
-      </Form>
-      <div className='auth__wrapper'>
-        <p className='auth__text'>Уже зарегистрированы?&nbsp;</p>
-        <Link className='auth__link' to='/sign-in'>
-          Войти
+    <div className="authorization">
+      <h2 className="authorization__title">Регистрация</h2>
+      <form name="register" className="authorization__form" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="authorization__input"
+          autoComplete="email"
+          onChange={handleChange}
+          value={email ?? ''}
+          required
+        />
+        <span className={`authorization__input-error email-error`}></span>
+        <input
+          type="password"
+          name="password"
+          placeholder="Пароль"
+          className="authorization__input"
+          autoComplete="current-password"
+          onChange={handleChange}
+          value={password ?? ''}
+          required
+        />
+        <span className={`authorization__input-error password-error`}></span>
+        <button type="submit" className="authorization__submit-button">
+          {btnName}
+        </button>
+        <Link to="/sign-in" className="authorization__link">
+          Есть аккаунт? Войдите
         </Link>
-      </div>
+      </form>
     </div>
   );
-}
+};
+
+export default Register;
