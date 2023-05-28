@@ -202,7 +202,7 @@ function App() {
           element={<Login btnName="Войти" onSignIn={handleLogin} />}
         />
         <Route
-          path="sign-up"
+          path="/sign-up"
           element={
             <Register btnName="Зарегистрироваться" onSignUp={handleRegister} />
           }
